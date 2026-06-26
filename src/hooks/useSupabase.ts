@@ -1,19 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import { createClient, SupabaseClient, User } from '@supabase/supabase-js'
+import type { User } from '@supabase/supabase-js'
+import { supabase } from '../lib/supabase'
 import { useNutritionStore } from '../store/useNutritionStore'
 import { useSupplementStore } from '../store/useSupplementStore'
 
-const SUPA_URL = 'https://sjzrhlxliiwluwbvlnwi.supabase.co'
-const SUPA_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqenJobHhsaWl3bHV3YnZsbndpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMDgxNTEsImV4cCI6MjA5Nzg4NDE1MX0.R4-vao_BvjtC29K84Xq62IupZFRzTGqfouR1F3KxlLQ'
-
-let supabaseInstance: SupabaseClient | null = null
-
-function getSupabase(): SupabaseClient {
-  if (!supabaseInstance) {
-    supabaseInstance = createClient(SUPA_URL, SUPA_KEY)
-  }
-  return supabaseInstance
+function getSupabase() {
+  return supabase
 }
 
 export function useSupabase() {

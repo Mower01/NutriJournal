@@ -8,8 +8,11 @@ import SupplementsPage from './pages/SupplementsPage'
 import BilanPage from './pages/BilanPage'
 import SimulatorsPage from './pages/SimulatorsPage'
 import GoalsPage from './pages/GoalsPage'
+import AuthCallback from './pages/AuthCallback'
 
 const router = createBrowserRouter([
+  // Route callback hors Layout (pas de sidebar/tabbar pendant la redirection)
+  { path: '/auth/callback', element: <AuthCallback /> },
   {
     path: '/',
     element: <Layout />,
